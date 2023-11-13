@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page title</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+ <style>
+     
+   
+  body{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   place-content: center;
+  }
+  
+ 
+  body.active{
+   background: black ;
+   Color: white;
+   
+  }
+  
+
+ .search:focus-within.active{
+      border: 1px solid white;
+      Background: white ;
+  }
+  
+
+  .search{
+   Position: relative;
+   Background: transparent;
+   left: 0%;
+   Display: flex;  
+   margin-block: 2rem; 
+   Padding: .1rem;    
+   width: 2rem;
+   height: 2rem;
+   border: 1px solid gray;
+   border-radius: 10px;
+   Overflow: hidden;
+   transition: ease-out 1s;
+  }
+  
+ 
+  
+  .search span{
+   Position: relative;
+   right: 1rem;
+   Padding: .3rem;
+   height: 2rem;
+   Z-index: -1;
+   transition: 1s;
+  }
+  
+ .search span.active{
+     Position: relative;
+     Z-index: 1;
+ }
+ 
+ .search:focus-within.active.search{
+     Background-color: black;
+     Color: white;
+     Z-index: 30;
+ }
+ 
+   .search:focus-within.active input{
+     Color: white ;
+     Z-index: 30;
+ }
+
+ 
+  input{
+   position: relative;
+   Background: transparent;
+   left: 0%;
+   Width: 0%;
+   height: 2rem;
+   padding: .5rem;
+   outline: none;
+   Border: none;
+   cursor: pointer;
+   transition: ease-out 2.5s;
+  }
+  
+
+
+  .search:focus-within, 
+  .search:hover{
+    left: 0%;
+    border: 2px solid black;
+    Width: 97%;
+    transition: ease-out 1s;
+    animation: straight 800ms linear forwards;
+    animation-delay: 1.01s;
+   }
+
+   
+    @keyframes straight {
+      0%{
+      
+          left: 0%;
+          transition: ease 250ms;
+      }
+   
+      50%{
+          Width: 102%;
+          left: 0%;
+          transition: ease 100ms;
+          border: 2px solid red;
+      }
+      100%{
+          Width: 100%;
+          left: 0%;
+          transition: ease 500ms;
+          border: 1px solid gray;
+      }
+  }
+   
+   .search:focus-within input,
+   .search:hover input{
+       Width: 100% !important;
+       transition: ease-out 1s;
+   }
+   
+   .search:focus-within span{
+       Left: 1%;
+       transition: ease-out 1s;
+   }
+   
+
+  
+  ::placeholder{
+    color: gray;
+    font-weight: bold;
+   }
+
+  
+    
+
+    ul, 
+    ol{
+     background-color: gray;
+     min-width: 60vw;
+     border-radius: 10px;
+     box-shadow: 0 0 6px red;
+     height: 9rem;
+     Overflow-Y: auto;
+     Overflow-x: hidden;
+    }
+        
+    ul.active,
+    ol.active{
+        height: 100%;
+    }
+ 
+    
+    ul::-webkit-scrollbar, 
+    ol::-webkit-scrollbar {
+        Width: 5px;
+        Border-radius: 10px;
+        
+    }
+    
+    ul::-webkit-scrollbar-track, 
+    ol::-webkit-scrollbar-track{
+        Background-color: white;
+        Width: 8px;
+    }
+    
+    ul::-webkit-scrollbar-thumb, 
+    ol::-webkit-scrollbar-thumb{
+        Background-color: gray;
+        Border-radius: 50px;
+    }
+    
+
+
+    li{
+      color: white;
+      list-style: a ;
+      margin-inline: 1rem;
+      padding: 1rem;
+      border-bottom: 1px solid white;
+      Margin-bottom: 0.2rem;
+      cursor: pointer;
+    }
+    
+   
+    
+    button{
+        Border-radius: 10px;
+        Outline: none;
+        Background: gray;
+        Color: white;
+        Border: none;
+        Padding: 0.3rem
+     
+    }
+    
+
+    
+   .dark{
+       Position: relative;
+       Display: flex;
+       Width: 2.5rem;
+       Height: 1rem;
+       Padding: 0.1rem;
+       Border-radius: 30px;
+       Overflow: hidden;
+       Transition: ease 1s;
+       Box-shadow: 0 0 6px gray;
+   }
+
+  .dark.active{
+      Background: black;
+  }
+   
+   @keyframes light{
+       0%{
+           Left: 75%;
+           transition: ease 1s;
+       }
+       100%{
+           Right: 25%;
+           transition: ease 1s;
+           
+       }
+   }
+   
+   
+   
+   
+  .dark .toggle.active{
+      Position: absolute;
+      Transition: ease 1s;
+      animation: dark 1s;
+      Left: 75%;
+      Background: white;
+  }
+   
+  .dark .toggle{
+      Position: absolute;
+      Left: 25%;
+      Top: 20%;
+      Transform: translate(-50%);
+      Width: 1rem;
+      Height: 0.8rem;
+      Background: black;
+      margin-block: auto;
+      Border-radius: 10px;
+      animation: light 1s;
+  }
+  
+  @keyframes dark{
+       0%{
+           Left: 0%;
+           transition: ease 1s;
+       }
+       100%{
+           Right: 0%;
+           transition: ease 1s;
+       }
+   }
+   
+   
+ </style>
+</head>
+<body>
+    <div class="container">
+        
+        <span class="dark" onclick="darkmode()">
+           <span class="toggle"></span>
+            
+        </span>
+        <div class="search">
+            
+            
+        
+        <input type="search" placeholder="search name..." id="textBox">
+        <span class="material-symbols-outlined">
+          search
+        </span>    
+       </div>
+    
+    <button onclick="expand1()">
+        View All
+    </button> 
+    
+    
+    <div id="list">
+        <ol class="ul">
+            <li>Evans</li>
+            <li>Oluebube</li>
+            <li>Everistus</li>
+            <li>Chinedu</li>
+            <li>Chinenye</li>
+            <li>Sandra</li>
+            <li>Lucy</li>
+            <li>Mark</li>
+            <li>Frank</li>
+            <li>Abigel</li>
+            <li>Chiamaka</li>
+            <li>Deborah </li>
+            <li>Adaobi</li>
+            <li>Judith </li>
+            <li>Euphemia</li>
+        </ol>
+    </div>
+    
+    
+    
+    <button onclick="expand()">
+        View All
+    </button>
+    
+    
+    <div id="result"></div>
+    
+    </div>
+ 
+    <script>
+       let list = document.getElementById('list');
+ 
+       
+       function darkmode(){
+           document.querySelector('body').classList.toggle('active');
+           document.querySelector('.toggle').classList.toggle('active');
+           
+           document.querySelector('.dark').classList.toggle('active');
+                          document.querySelector('.search').classList.toggle('active');
+                          document.querySelector('span').classList.toggle('active');
+       }
+       
+       function expand(){
+           document.querySelector('ul').classList.toggle('active');
+       }
+       
+       function expand1(){
+           document.querySelector('.ul').classList.toggle('active');
+       }
+       
+       fetch('list')
+       fetch('https://jsonplaceholder.typicode.com/users') 
+
+          .then(response => response.json())
+          .then(users => showUsers(users));
+        function showUsers(users){
+            const ul = document.createElement("ul");
+            for (let user of users){
+                const li = document.createElement("li");
+                li.innerText = user.name;
+                ul.appendChild(li);               
+            } result.appendChild(ul);
+        }
+   
+           
+        
+        textBox.oninput = filterUsers;
+        function filterUsers(){
+            const liElements = document.querySelectorAll("li")
+            for (let li of liElements) {
+                const currentName = li.innerText.toLowerCase();
+                const searchText = this.value.toLowerCase();
+                if (!currentName.includes(searchText))
+                  li.setAttribute('hidden', true);
+                else li.removeAttribute('hidden');
+            }
+        }
+        
+        
+    </script> 
+    
+</body>
+</html>
